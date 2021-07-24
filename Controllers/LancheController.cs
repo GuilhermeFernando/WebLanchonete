@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using ProjetoLanchonete.ViewModels;
 using ProjetoLanchonete.Repositories;
 
 namespace ProjetoLanchonete.Controllers
@@ -18,8 +19,14 @@ namespace ProjetoLanchonete.Controllers
         {
             ViewBag.Lanche ="Lanches";
             ViewData["Categoria"]= "Categoria";
-            var lanches = _lancheRepository.Lanches;
-            return View(lanches);
+
+            var lanchelistViewModel = new LancheListViewModel();
+            lanchelistViewModel.Lanches = _lancheRepository.Lanches;
+            lanchelistViewModel.CategoriaAtual ="Categoria Atual";
+            return View(lanchelistViewModel);
+            //var lanches = _lancheRepository.Lanches;
+            //return View(lanches);
+            
         }
     }
 }
