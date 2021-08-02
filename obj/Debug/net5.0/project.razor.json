@@ -15629,6 +15629,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Projetos VIsual studio\\ProjetoLanchonete\\Views\\CarrinhoCompra\\Index.cshtml",
+      "TargetPath": "Views\\CarrinhoCompra\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Projetos VIsual studio\\ProjetoLanchonete\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"

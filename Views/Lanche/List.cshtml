@@ -1,13 +1,13 @@
 @model LancheListViewModel
 
-<div><h2>@Model.CategoriaAtual</h2></div>
 
-@foreach (Lanche lanche in Model.Lanches)
-{    
-        @Html.Partial("_LanchesResumo", lanche);       
-  
-    
-}
+<h2>@Model.CategoriaAtual</h2>
+<div class="row">       
 
-
+        @foreach (Lanche lanche in Model.Lanches)
+        {    
+                <partial name="_LanchesResumo" for="@lanche" />
+        
+        }
+</div>
 

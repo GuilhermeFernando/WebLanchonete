@@ -11,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using ProjetoLanchonete.Context;
 using ProjetoLanchonete.Repositories;
+using Microsoft.AspNetCore.Http;
+using ProjetoLanchonete.Models;
 
 namespace ProjetoLanchonete
 {
@@ -30,9 +32,13 @@ namespace ProjetoLanchonete
              options.UseSqlServer(Configuration.GetConnectionString("DefaultConection")));
 
             services.AddTransient<ICategoriasRepository, CategoriaRepository>(); 
-            services.AddTransient<ILanchesRepository, LancheRepository>();
-            
+            services.AddTransient<ILanchesRepository, LancheRepository>();            
             services.AddControllersWithViews();
+            services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
+
+
+            services.AddScoped(cp => CarrinhoCompra.GetCarrinho(cp));
+            services.AddMvc();
 
         }
 
@@ -51,6 +57,7 @@ namespace ProjetoLanchonete
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 
